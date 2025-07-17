@@ -583,7 +583,7 @@
         familia: 'Salticidae', 
         descripcion: 'Conocida por sus impresionantes saltos (hasta 50 veces su longitud corporal) y su excelente visión. Son curiosas y a veces siguen el movimiento de los humanos.', 
         imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flickr_-_Lukjonis_-_Jumping_spider_-_Sitticus_floricola_%28set_of_pictures%29.jpg/960px-Flickr_-_Lukjonis_-_Jumping_spider_-_Sitticus_floricola_%28set_of_pictures%29.jpg', 
-        enlace: 'proyectorelacionado3.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/el-mundo-de-las-ara-as/',
         peligrosidad: 'Nula'
       },
       { 
