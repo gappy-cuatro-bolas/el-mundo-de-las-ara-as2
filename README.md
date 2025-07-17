@@ -627,7 +627,7 @@
         nombreCientifico: 'Trichonephila clavipes', 
         familia: 'Araneidae', 
         descripcion: 'Tejedoras de enormes telarañas con seda que brilla dorado al sol. Sus redes pueden alcanzar más de 1 metro de diámetro.', 
-        imagen: 'https://static.wikia.nocookie.net/reinoanimalia/images/3/36/Nephila-clavipes-15.jpg/revision/latest?cb=20181129173614&path-prefix=es', 
+        imagen: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTqAG3X_zgF_DJ0Yii9QbMtZgHjep_-pJX8py9r7oUuk3vbPrN5vzlGRsLFPcj1aZXKHBjxKgZZPi5VNsLNCASDSA', 
         enlace: 'proyectorelacionado10.html',
         peligrosidad: 'Baja'
       },
