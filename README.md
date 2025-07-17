@@ -574,7 +574,7 @@
         familia: 'Theraphosidae', 
         descripcion: 'La araña más grande del mundo por masa. Puede alcanzar 30 cm de envergadura. A pesar de su aspecto intimidante, su veneno no es peligroso para humanos.', 
         imagen: 'https://www.reptilmadrid.com/wp-content/uploads/2022/09/como-cuidar-una-tarantula.jpg', 
-        enlace: 'proyectorelacionado.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/el-mundo-de-las-ara-as1/',
         peligrosidad: 'Baja'
       },
       { 
