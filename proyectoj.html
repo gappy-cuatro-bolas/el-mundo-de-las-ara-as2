@@ -556,7 +556,7 @@
         familia: 'Theridiidae', 
         descripcion: 'Famosa por su veneno neurotóxico. Las hembras son reconocibles por su marca de reloj de arena rojo en el abdomen. Aunque su veneno es potente, rara vez atacan a humanos.', 
         imagen: 'https://cdnwine.diario1.com/wp-content/uploads/2023/08/Viuda-Negra.jpg', 
-        enlace: 'proyectorelacionado1.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/ara-as/',
         peligrosidad: 'Alta'
       },
       { 
