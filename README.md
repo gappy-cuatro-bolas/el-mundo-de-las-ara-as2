@@ -565,7 +565,7 @@
         familia: 'Loxosceles', 
         descripcion: 'Pequeña y nocturna, su mordedura puede causar loxoscelismo, una condición que en algunos casos produce necrosis en la piel. Prefiere lugares oscuros y secos.', 
         imagen: 'https://www.cuidomidespensa.com/hubfs/Imported_Blog_Media/loxosceles-g56d5a9b2f_1920-1.jpg', 
-        enlace: 'proyectorelacionado2.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/ara-as-que-ara-an/',
         peligrosidad: 'Alta'
       },
       { 
