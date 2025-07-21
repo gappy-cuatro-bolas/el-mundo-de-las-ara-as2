@@ -618,7 +618,7 @@
         familia: 'Salticidae', 
         descripcion: 'Pequeñas y coloridas, los machos realizan elaboradas danzas de cortejo mostrando sus brillantes colores para atraer a las hembras.', 
         imagen: 'https://static.nationalgeographic.es/files/styles/image_3200/public/02-peacock-spider-9678_9679_9680.webp?w=1190&h=911.jpg', 
-        enlace: 'proyectorelacionado6.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/ara-a-pavo-real/',
         peligrosidad: 'Nula'
       },
       { 
