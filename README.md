@@ -609,7 +609,7 @@
         familia: 'Ctenidae', 
         descripcion: 'Considerada una de las arañas más venenosas del mundo. Es agresiva y su veneno puede ser fatal sin tratamiento. Habita en Sudamérica.', 
         imagen: 'https://cdn.dl.uy//solimg/894x503/8/8790.jpg', 
-        enlace: 'proyectorelacionado7.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/ara-a-bananera/',
         peligrosidad: 'Muy alta'
       },
       { 
