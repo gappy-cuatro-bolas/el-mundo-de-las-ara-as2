@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -601,7 +600,7 @@
         familia: 'Thomisidae', 
         descripcion: 'Maestras del camuflaje que pueden cambiar de color para mezclarse con las flores donde acechan a sus presas. Tienen patas delanteras más largas como los cangrejos.', 
         imagen: 'https://inaturalist-open-data.s3.amazonaws.com/photos/38263287/original.jpeg', 
-        enlace: 'proyectorelacionado5.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/ara-a-cangrejo/',
         peligrosidad: 'Nula'
       },
       { 
