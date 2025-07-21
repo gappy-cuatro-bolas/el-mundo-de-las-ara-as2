@@ -592,7 +592,7 @@
         familia: 'Lycosidae', 
         descripcion: 'Cazadoras rápidas y nocturnas que no construyen telarañas. Las hembras cargan sus sacos de huevos y luego a sus crías en el abdomen.', 
         imagen: 'https://lahuertinadetoni.es/wp-content/uploads/2015/01/233-163-Copiar.jpg', 
-        enlace: 'proyectorelacionado4.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/ara-a-lobo/',
         peligrosidad: 'Baja'
       },
       { 
