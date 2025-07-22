@@ -19,6 +19,7 @@
       --success: #52B788;
       --warning: #F4A261;
       --danger: #E63946;
+      --comment-bg: rgba(30, 30, 30, 0.8);
     }
 
     * {
@@ -316,6 +317,143 @@
       transform: translateX(3px);
     }
 
+    /* Sección de comentarios */
+    .comentarios-section {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .comentarios-container {
+      background: var(--comment-bg);
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 77, 109, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .comentarios-title {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .comentarios-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    .comentario-form {
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--light);
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(15, 15, 15, 0.7);
+      color: var(--light);
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(255, 77, 109, 0.3);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .btn-enviar {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-enviar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(255, 77, 109, 0.6);
+    }
+
+    .btn-enviar i {
+      margin-left: 8px;
+    }
+
+    .lista-comentarios {
+      margin-top: 2rem;
+    }
+
+    .comentario {
+      background: rgba(20, 20, 20, 0.6);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .comentario:hover {
+      transform: translateX(5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .comentario-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .comentario-autor {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .comentario-fecha {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .comentario-texto {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+
     /* Footer con efecto de onda */
     footer {
       background: linear-gradient(to bottom, rgba(15, 15, 15, 0.9), rgba(8, 8, 8, 0.95));
@@ -490,6 +628,14 @@
         max-width: 400px;
         margin: 0 auto;
       }
+
+      .comentarios-section {
+        padding: 0 1rem;
+      }
+
+      .comentarios-container {
+        padding: 1.5rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -509,6 +655,16 @@
       #filtros input,
       #filtros select {
         width: 100%;
+      }
+
+      .comentario-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .comentario-fecha {
+        margin-left: 0;
       }
     }
   </style>
@@ -531,6 +687,39 @@
 
   <div id="arañas-db"></div>
 
+  <!-- Sección de Comentarios -->
+  <section class="comentarios-section reveal">
+    <div class="comentarios-container">
+      <h2 class="comentarios-title">Comparte tu Experiencia</h2>
+      
+      <form class="comentario-form" id="form-comentario">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email (no se mostrará)</label>
+          <input type="email" id="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="comentario">Tu comentario</label>
+          <textarea id="comentario" class="form-control" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn-enviar">
+          Enviar Comentario <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+      
+      <div class="lista-comentarios" id="lista-comentarios">
+        <!-- Los comentarios se cargarán aquí dinámicamente -->
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <h2>Conéctate con nosotros</h2>
     <p>Síguenos para más contenido fascinante sobre el mundo arácnido. Comparte tus propias observaciones y descubrimientos.</p>
@@ -547,7 +736,7 @@
   </footer>
 
   <script>
-    // Datos de las arañas
+    // Datos de las arañas con los enlaces originales
     const arañas = [
       { 
         nombre: 'Viuda negra', 
@@ -627,7 +816,7 @@
         familia: 'Araneidae', 
         descripcion: 'Tejedoras de enormes telarañas con seda que brilla dorado al sol. Sus redes pueden alcanzar más de 1 metro de diámetro.', 
         imagen: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTqAG3X_zgF_DJ0Yii9QbMtZgHjep_-pJX8py9r7oUuk3vbPrN5vzlGRsLFPcj1aZXKHBjxKgZZPi5VNsLNCASDSA', 
-        enlace: 'proyectorelacionado10.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/ara-a-de-seda-dorada/',
         peligrosidad: 'Baja'
       },
       { 
@@ -636,8 +825,33 @@
         familia: 'Sparassidae', 
         descripcion: 'La araña con mayor envergadura de patas (hasta 30 cm). Es rápida y ágil, cazando activamente por la noche en las selvas de Laos.', 
         imagen: 'https://cloudfront-us-east-1.images.arcpublishing.com/infobae/HP6S6VSSLRF6TFMGDGM4VNV56I.webp', 
-        enlace: 'proyectorelacionado11.html',
+        enlace: 'https://gappy-cuatro-bolas.github.io/ara-a-cazadora-gigante/',
         peligrosidad: 'Baja'
+      }
+    ];
+
+    // Datos de comentarios (simulando una base de datos)
+    let comentarios = [
+      {
+        id: 1,
+        nombre: "Carlos Araña",
+        email: "carlos@example.com",
+        comentario: "¡Increíble colección! Siempre me han fascinado las arañas, especialmente las saltarinas. Su capacidad de salto es asombrosa.",
+        fecha: "2025-06-15T14:30:00Z"
+      },
+      {
+        id: 2,
+        nombre: "María López",
+        email: "maria@example.com",
+        comentario: "Tuve un encuentro con una viuda negra en mi jardín. Gracias a esta página pude identificarla y saber cómo actuar. ¡Muy útil!",
+        fecha: "2025-06-20T09:15:00Z"
+      },
+      {
+        id: 3,
+        nombre: "Biólogo Andrés",
+        email: "andres@example.com",
+        comentario: "Como profesional, valoro mucho la precisión de la información presentada. Sería genial agregar más sobre su rol en los ecosistemas.",
+        fecha: "2025-06-25T16:45:00Z"
       }
     ];
 
@@ -646,6 +860,8 @@
     const inputBusqueda = document.getElementById('buscar');
     const selectFamilia = document.getElementById('familia');
     const particlesContainer = document.getElementById('particles');
+    const formComentario = document.getElementById('form-comentario');
+    const listaComentarios = document.getElementById('lista-comentarios');
 
     // Crear partículas
     function createParticles() {
@@ -779,6 +995,104 @@
       mostrarArañas(filtradas);
     }
 
+    // Formatear fecha para mostrar
+    function formatFecha(fechaISO) {
+      const opciones = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+      return new Date(fechaISO).toLocaleDateString('es-ES', opciones);
+    }
+
+    // Mostrar comentarios
+    function mostrarComentarios() {
+      if (comentarios.length === 0) {
+        listaComentarios.innerHTML = `
+          <div class="no-results">
+            <i class="far fa-comment-dots"></i>
+            <h3>No hay comentarios aún</h3>
+            <p>Sé el primero en compartir tu experiencia con arañas</p>
+          </div>
+        `;
+        return;
+      }
+      
+      // Ordenar comentarios por fecha (más recientes primero)
+      comentarios.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+      
+      listaComentarios.innerHTML = '';
+      comentarios.forEach(comentario => {
+        const comentarioElement = document.createElement('div');
+        comentarioElement.className = 'comentario reveal';
+        comentarioElement.innerHTML = `
+          <div class="comentario-header">
+            <span class="comentario-autor">${comentario.nombre}</span>
+            <span class="comentario-fecha">${formatFecha(comentario.fecha)}</span>
+          </div>
+          <p class="comentario-texto">${comentario.comentario}</p>
+        `;
+        listaComentarios.appendChild(comentarioElement);
+      });
+      
+      revealElements();
+    }
+
+    // Manejar envío de comentarios
+    function manejarEnvioComentario(e) {
+      e.preventDefault();
+      
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const comentarioTexto = document.getElementById('comentario').value.trim();
+      
+      if (!nombre || !email || !comentarioTexto) {
+        alert('Por favor completa todos los campos');
+        return;
+      }
+      
+      // Validar email simple
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Por favor ingresa un email válido');
+        return;
+      }
+      
+      // Crear nuevo comentario
+      const nuevoComentario = {
+        id: Date.now(),
+        nombre,
+        email,
+        comentario: comentarioTexto,
+        fecha: new Date().toISOString()
+      };
+      
+      // Agregar a la lista de comentarios
+      comentarios.unshift(nuevoComentario);
+      
+      // Mostrar comentarios actualizados
+      mostrarComentarios();
+      
+      // Resetear formulario
+      formComentario.reset();
+      
+      // Mostrar mensaje de éxito
+      const mensajeExito = document.createElement('div');
+      mensajeExito.className = 'comentario';
+      mensajeExito.style.backgroundColor = 'rgba(82, 183, 136, 0.2)';
+      mensajeExito.style.borderLeftColor = 'var(--success)';
+      mensajeExito.innerHTML = `
+        <p style="color: var(--success); font-weight: 500;">
+          <i class="fas fa-check-circle"></i> ¡Gracias por tu comentario!
+        </p>
+      `;
+      listaComentarios.insertBefore(mensajeExito, listaComentarios.firstChild);
+      
+      // Desaparecer mensaje después de 3 segundos
+      setTimeout(() => {
+        mensajeExito.style.opacity = '0';
+        mensajeExito.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          mensajeExito.remove();
+        }, 300);
+      }, 3000);
+    }
+
     // Efecto de scroll revelado
     function revealElements() {
       const reveals = document.querySelectorAll('.reveal');
@@ -799,12 +1113,14 @@
     // Event listeners
     inputBusqueda.addEventListener('input', filtrarArañas);
     selectFamilia.addEventListener('change', filtrarArañas);
+    formComentario.addEventListener('submit', manejarEnvioComentario);
 
     // Inicialización
     window.addEventListener('load', () => {
       createParticles();
       setupFamiliaFilter();
       mostrarArañas(arañas);
+      mostrarComentarios();
       
       // Efecto de carga inicial
       dbContainer.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
