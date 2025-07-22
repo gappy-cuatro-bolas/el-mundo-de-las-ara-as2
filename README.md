@@ -816,7 +816,7 @@
         familia: 'Araneidae', 
         descripcion: 'Tejedoras de enormes telarañas con seda que brilla dorado al sol. Sus redes pueden alcanzar más de 1 metro de diámetro.', 
         imagen: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTqAG3X_zgF_DJ0Yii9QbMtZgHjep_-pJX8py9r7oUuk3vbPrN5vzlGRsLFPcj1aZXKHBjxKgZZPi5VNsLNCASDSA', 
-        enlace: 'https://gappy-cuatro-bolas.github.io/ara-a-de-seda-dorada/',
+        enlace: 'https://gappy-cuatro-bolas.github.io/ara-a-seda-dorada/',
         peligrosidad: 'Baja'
       },
       { 
