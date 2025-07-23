@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🕷️ El mundo de las Arañas | Exploración Arácnida</title> 
+  <title>🕷️ El Mundo de las Arañas | Exploración Arácnida</title> 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
@@ -20,6 +20,50 @@
       --warning: #F4A261;
       --danger: #E63946;
       --comment-bg: rgba(30, 30, 30, 0.8);
+      --bg-gradient: linear-gradient(135deg, var(--darker), var(--dark));
+      --header-bg: linear-gradient(135deg, rgba(15, 15, 15, 0.9), rgba(30, 30, 30, 0.9));
+      --card-bg: linear-gradient(145deg, rgba(30, 30, 30, 0.8), rgba(20, 20, 20, 0.9));
+      --text-color: #F8F9FA;
+      --input-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Tema claro */
+    body.theme-light {
+      --primary: #D90429;
+      --primary-dark: #A5011B;
+      --secondary: #5E35B1;
+      --dark: #F8F9FA;
+      --darker: #E9ECEF;
+      --light: #212529;
+      --gray: #6C757D;
+      --success: #2E7D32;
+      --warning: #F77F00;
+      --danger: #C1121F;
+      --comment-bg: rgba(255, 255, 255, 0.9);
+      --bg-gradient: linear-gradient(135deg, #E9ECEF, #F8F9FA);
+      --header-bg: linear-gradient(135deg, rgba(248, 249, 250, 0.9), rgba(233, 236, 239, 0.9));
+      --card-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.95));
+      --text-color: #212529;
+      --input-bg: rgba(33, 37, 41, 0.1);
+    }
+
+    /* Tema verde oscuro */
+    body.theme-dark-green {
+      --primary: #52B788;
+      --primary-dark: #2D6A4F;
+      --secondary: #40916C;
+      --dark: #081C15;
+      --darker: #05120D;
+      --light: #D8F3DC;
+      --success: #52B788;
+      --warning: #F4A261;
+      --danger: #E76F51;
+      --comment-bg: rgba(8, 28, 21, 0.8);
+      --bg-gradient: linear-gradient(135deg, var(--darker), var(--dark));
+      --header-bg: linear-gradient(135deg, rgba(8, 28, 21, 0.9), rgba(13, 43, 32, 0.9));
+      --card-bg: linear-gradient(145deg, rgba(13, 43, 32, 0.8), rgba(8, 28, 21, 0.9));
+      --text-color: #D8F3DC;
+      --input-bg: rgba(216, 243, 220, 0.1);
     }
 
     * {
@@ -30,11 +74,73 @@
 
     body {
       margin: 0;
-      background: linear-gradient(135deg, var(--darker), var(--dark));
-      color: var(--light);
+      background: var(--bg-gradient);
+      color: var(--text-color);
       font-family: 'Poppins', sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
+      transition: background 0.5s ease, color 0.3s ease;
+    }
+
+    /* Selector de temas */
+    .theme-selector {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      gap: 10px;
+      background: rgba(15, 15, 15, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 10px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .theme-light .theme-selector,
+    .theme-dark-green .theme-selector {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .theme-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .theme-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .theme-btn i {
+      font-size: 14px;
+    }
+
+    .theme-btn.active {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 2px white, 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    #theme-dark {
+      background: linear-gradient(135deg, #0F0F0F, #080808);
+    }
+
+    #theme-light {
+      background: linear-gradient(135deg, #F8F9FA, #E9ECEF);
+      color: #212529;
+    }
+
+    #theme-dark-green {
+      background: linear-gradient(135deg, #081C15, #05120D);
     }
 
     /* Efecto de partículas */
@@ -57,8 +163,8 @@
 
     /* Header con efecto de neón */
     header {
-      background: linear-gradient(135deg, rgba(15, 15, 15, 0.9), rgba(30, 30, 30, 0.9));
-      padding: 4rem 1rem 3rem;
+      background: var(--header-bg);
+      padding: 5rem 1rem 3rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -83,7 +189,7 @@
     }
 
     header h1 {
-      font-size: 3.2rem;
+      font-size: 3.5rem;
       font-family: 'Roboto Condensed', sans-serif;
       color: var(--primary);
       margin: 0;
@@ -99,12 +205,140 @@
 
     header p {
       font-size: 1.4rem;
-      color: var(--light);
+      color: var(--text-color);
       margin-top: 1rem;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
       opacity: 0.9;
+    }
+
+    /* Galería de arañas */
+    .gallery-section {
+      max-width: 1300px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .gallery-title {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .gallery-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    .spider-gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding: 1.5rem 0.5rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) rgba(255, 255, 255, 0.1);
+    }
+
+    .spider-gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .spider-gallery::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .spider-gallery::-webkit-scrollbar-thumb {
+      background-color: var(--primary);
+      border-radius: 10px;
+    }
+
+    .gallery-item {
+      min-width: 280px;
+      max-width: 280px;
+      scroll-snap-align: start;
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gallery-info {
+      padding: 1.2rem;
+    }
+
+    .gallery-info h3 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-info p {
+      font-size: 0.85rem;
+      color: var(--text-color);
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .gallery-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-nav-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-nav-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    .gallery-nav-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
 
     /* Filtros con efecto de vidrio */
@@ -134,8 +368,8 @@
       padding: 1rem 1.5rem;
       border-radius: 50px;
       border: none;
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--light);
+      background: var(--input-bg);
+      color: var(--text-color);
       font-size: 1rem;
       flex: 1 1 250px;
       outline: none;
@@ -165,7 +399,7 @@
 
     /* Tarjetas con efecto 3D */
     .tarjeta {
-      background: linear-gradient(145deg, rgba(30, 30, 30, 0.8), rgba(20, 20, 20, 0.9));
+      background: var(--card-bg);
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -254,7 +488,8 @@
       font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 1rem;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--text-color);
+      opacity: 0.9;
     }
 
     .tarjeta .familia {
@@ -364,7 +599,7 @@
     .form-group label {
       display: block;
       margin-bottom: 0.5rem;
-      color: var(--light);
+      color: var(--text-color);
       font-weight: 500;
     }
 
@@ -374,7 +609,7 @@
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(15, 15, 15, 0.7);
-      color: var(--light);
+      color: var(--text-color);
       font-family: 'Poppins', sans-serif;
       transition: all 0.3s ease;
     }
@@ -450,7 +685,8 @@
     }
 
     .comentario-texto {
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--text-color);
+      opacity: 0.9;
       line-height: 1.6;
     }
 
@@ -636,6 +872,11 @@
       .comentarios-container {
         padding: 1.5rem;
       }
+
+      .theme-selector {
+        top: 10px;
+        right: 10px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -666,18 +907,43 @@
       .comentario-fecha {
         margin-left: 0;
       }
+
+      .gallery-item {
+        min-width: 250px;
+        max-width: 250px;
+      }
     }
   </style>
 </head>
-<body>
+<body class="">
+  <!-- Selector de temas -->
+  <div class="theme-selector">
+    <button id="theme-dark" class="theme-btn active" title="Modo oscuro"><i class="fas fa-moon"></i></button>
+    <button id="theme-light" class="theme-btn" title="Modo claro"><i class="fas fa-sun"></i></button>
+    <button id="theme-dark-green" class="theme-btn" title="Modo verde oscuro"><i class="fas fa-leaf"></i></button>
+  </div>
+
   <!-- Efecto de partículas -->
   <div class="particles" id="particles"></div>
 
   <header>
-    <h1>🕷️ El mundo de las Arañas</h1>
+    <h1>🕷️ El Mundo de las Arañas</h1>
     <p>Explora el fascinante universo de los arácnidos. Descubre especies increíbles, sus características y curiosidades.</p>
   </header>
 
+  <!-- Galería de arañas -->
+  <section class="gallery-section reveal">
+    <h2 class="gallery-title">Galería de Arañas</h2>
+    <div class="spider-gallery" id="spider-gallery">
+      <!-- Las imágenes se cargarán dinámicamente -->
+    </div>
+    <div class="gallery-nav">
+      <button class="gallery-nav-btn" id="gallery-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+      <button class="gallery-nav-btn" id="gallery-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- Filtros de búsqueda -->
   <div id="filtros">
     <input type="text" id="buscar" placeholder="Buscar por nombre o científico..." />
     <select id="familia">
@@ -685,6 +951,7 @@
     </select>
   </div>
 
+  <!-- Base de datos de arañas -->
   <div id="arañas-db"></div>
 
   <!-- Sección de Comentarios -->
@@ -731,7 +998,7 @@
       <a href="mailto:info@aracnopedia.org" aria-label="Correo"><i class="fas fa-envelope"></i></a>
     </div>
     <div class="footer-bottom">
-      &copy; 2025 El mundo de las Arañas. Todos los derechos reservados. | Diseñado con pasión por los arácnidos
+      &copy; 2025 El Mundo de las Arañas. Todos los derechos reservados. | Diseñado con pasión por los arácnidos
     </div>
   </footer>
 
@@ -830,28 +1097,49 @@
       }
     ];
 
-    // Datos de comentarios (simulando una base de datos)
-    let comentarios = [
+    // Datos para la galería (con imágenes adicionales)
+    const gallerySpiders = [
       {
-        id: 1,
-        nombre: "Carlos Araña",
-        email: "carlos@example.com",
-        comentario: "¡Increíble colección! Siempre me han fascinado las arañas, especialmente las saltarinas. Su capacidad de salto es asombrosa.",
-        fecha: "2025-06-15T14:30:00Z"
+        nombre: 'Araña de jardín europea',
+        nombreCientifico: 'Araneus diadematus',
+        descripcion: 'Común en jardines, teje grandes telarañas orbiculares con un distintivo patrón en cruz en su abdomen.',
+        imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Araneus_diadematus_%28aka%29.jpg/1200px-Araneus_diadematus_%28aka%29.jpg'
       },
       {
-        id: 2,
-        nombre: "María López",
-        email: "maria@example.com",
-        comentario: "Tuve un encuentro con una viuda negra en mi jardín. Gracias a esta página pude identificarla y saber cómo actuar. ¡Muy útil!",
-        fecha: "2025-06-20T09:15:00Z"
+        nombre: 'Araña camello',
+        nombreCientifico: 'Solifugae',
+        descripcion: 'Aunque no es una verdadera araña, es un arácnido veloz que habita en desiertos y puede alcanzar 15 cm.',
+        imagen: 'https://www.nationalgeographic.com.es/medio/2022/08/09/araña-camello_8d8d5e9e_1280x720.jpg'
       },
       {
-        id: 3,
-        nombre: "Biólogo Andrés",
-        email: "andres@example.com",
-        comentario: "Como profesional, valoro mucho la precisión de la información presentada. Sería genial agregar más sobre su rol en los ecosistemas.",
-        fecha: "2025-06-25T16:45:00Z"
+        nombre: 'Araña de espalda roja',
+        nombreCientifico: 'Latrodectus hasselti',
+        descripcion: 'Pariente australiana de la viuda negra, con una distintiva marca roja en su espalda y veneno neurotóxico.',
+        imagen: 'https://www.australiangeographic.com.au/wp-content/uploads/2018/06/redback-spider.jpg'
+      },
+      {
+        nombre: 'Araña de tela en embudo',
+        nombreCientifico: 'Atrax robustus',
+        descripcion: 'Una de las arañas más peligrosas del mundo, nativa de Australia. Su veneno puede ser fatal para humanos.',
+        imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Atrax_robustus.jpg/1200px-Atrax_robustus.jpg'
+      },
+      {
+        nombre: 'Araña pescadora',
+        nombreCientifico: 'Dolomedes',
+        descripcion: 'Puede caminar sobre el agua y bucear para capturar pequeños peces y otros animales acuáticos.',
+        imagen: 'https://www.thoughtco.com/thmb/4Z2ZQ9Z9X9Z9X9Z9X9Z9X9Z9X9Z9=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/fishing-spider-5c5a9a4b46e0fb0001f5e5a5.jpg'
+      },
+      {
+        nombre: 'Araña de cara de ogro',
+        nombreCientifico: 'Deinopidae',
+        descripcion: 'Tiene visión nocturna excepcional y construye una red que lanza sobre sus presas como una red de caza.',
+        imagen: 'https://www.science.org/do/10.1126/science.aaz9455/abs/spider_1280p_0.jpg'
+      },
+      {
+        nombre: 'Araña de agua',
+        nombreCientifico: 'Argyroneta aquatica',
+        descripcion: 'La única araña que pasa toda su vida bajo el agua, creando una campana de aire para respirar.',
+        imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Argyroneta_aquatica.jpg/1200px-Argyroneta_aquatica.jpg'
       }
     ];
 
@@ -862,6 +1150,51 @@
     const particlesContainer = document.getElementById('particles');
     const formComentario = document.getElementById('form-comentario');
     const listaComentarios = document.getElementById('lista-comentarios');
+    const spiderGallery = document.getElementById('spider-gallery');
+    const galleryPrevBtn = document.getElementById('gallery-prev');
+    const galleryNextBtn = document.getElementById('gallery-next');
+    const themeDarkBtn = document.getElementById('theme-dark');
+    const themeLightBtn = document.getElementById('theme-light');
+    const themeDarkGreenBtn = document.getElementById('theme-dark-green');
+
+    // Cargar comentarios desde localStorage
+    function cargarComentarios() {
+      const comentariosGuardados = localStorage.getItem('comentariosAranas');
+      if (comentariosGuardados) {
+        return JSON.parse(comentariosGuardados);
+      }
+      return [
+        {
+          id: 1,
+          nombre: "Carlos Araña",
+          email: "carlos@example.com",
+          comentario: "¡Increíble colección! Siempre me han fascinado las arañas, especialmente las saltarinas. Su capacidad de salto es asombrosa.",
+          fecha: new Date().toISOString()
+        },
+        {
+          id: 2,
+          nombre: "María López",
+          email: "maria@example.com",
+          comentario: "Tuve un encuentro con una viuda negra en mi jardín. Gracias a esta página pude identificarla y saber cómo actuar. ¡Muy útil!",
+          fecha: new Date(Date.now() - 86400000).toISOString() // Hace 1 día
+        },
+        {
+          id: 3,
+          nombre: "Biólogo Andrés",
+          email: "andres@example.com",
+          comentario: "Como profesional, valoro mucho la precisión de la información presentada. Sería genial agregar más sobre su rol en los ecosistemas.",
+          fecha: new Date(Date.now() - 172800000).toISOString() // Hace 2 días
+        }
+      ];
+    }
+
+    // Guardar comentarios en localStorage
+    function guardarComentarios(comentarios) {
+      localStorage.setItem('comentariosAranas', JSON.stringify(comentarios));
+    }
+
+    // Inicializar comentarios
+    let comentarios = cargarComentarios();
 
     // Crear partículas
     function createParticles() {
@@ -871,24 +1204,17 @@
         const particle = document.createElement('div');
         particle.classList.add('particle');
         
-        // Tamaño aleatorio entre 1px y 3px
         const size = Math.random() * 2 + 1;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-        
-        // Posición aleatoria
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
-        
-        // Opacidad aleatoria
         particle.style.opacity = Math.random() * 0.5 + 0.1;
         
-        // Animación
         const duration = Math.random() * 20 + 10;
         const delay = Math.random() * 5;
         particle.style.animation = `float ${duration}s linear ${delay}s infinite`;
         
-        // Dirección de animación aleatoria
         const direction = Math.random() > 0.5 ? 'normal' : 'reverse';
         particle.style.animationDirection = direction;
         
@@ -930,6 +1256,55 @@
       });
     }
 
+    // Mostrar galería de arañas
+    function mostrarGaleria() {
+      spiderGallery.innerHTML = '';
+      
+      gallerySpiders.forEach((araña, index) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item reveal';
+        item.style.transitionDelay = `${index * 0.1}s`;
+        item.innerHTML = `
+          <img src="${araña.imagen}" alt="${araña.nombre}" class="gallery-img" loading="lazy" />
+          <div class="gallery-info">
+            <h3>${araña.nombre}</h3>
+            <p><em>${araña.nombreCientifico}</em></p>
+            <p>${araña.descripcion}</p>
+          </div>
+        `;
+        spiderGallery.appendChild(item);
+      });
+      
+      setupGalleryNavigation();
+      revealElements();
+    }
+
+    // Configurar navegación de la galería
+    function setupGalleryNavigation() {
+      galleryPrevBtn.addEventListener('click', () => {
+        spiderGallery.scrollBy({
+          left: -300,
+          behavior: 'smooth'
+        });
+      });
+      
+      galleryNextBtn.addEventListener('click', () => {
+        spiderGallery.scrollBy({
+          left: 300,
+          behavior: 'smooth'
+        });
+      });
+      
+      spiderGallery.addEventListener('scroll', updateGalleryButtons);
+      updateGalleryButtons();
+    }
+
+    // Actualizar estado de los botones de navegación de la galería
+    function updateGalleryButtons() {
+      galleryPrevBtn.disabled = spiderGallery.scrollLeft <= 10;
+      galleryNextBtn.disabled = spiderGallery.scrollLeft >= spiderGallery.scrollWidth - spiderGallery.clientWidth - 10;
+    }
+
     // Mostrar tarjetas de arañas
     function mostrarArañas(datos) {
       dbContainer.innerHTML = '';
@@ -951,10 +1326,9 @@
         tarjeta.className = 'tarjeta reveal';
         tarjeta.style.transitionDelay = `${index * 0.1}s`;
         
-        // Determinar color de peligrosidad
-        let peligroColor = '#52B788'; // Verde para baja
-        if (araña.peligrosidad === 'Alta') peligroColor = '#F4A261'; // Naranja
-        if (araña.peligrosidad === 'Muy alta') peligroColor = '#E63946'; // Rojo
+        let peligroColor = 'var(--success)';
+        if (araña.peligrosidad === 'Alta') peligroColor = 'var(--warning)';
+        if (araña.peligrosidad === 'Muy alta') peligroColor = 'var(--danger)';
         
         tarjeta.innerHTML = `
           <img src="${araña.imagen}" alt="${araña.nombre}" loading="lazy" />
@@ -1014,7 +1388,6 @@
         return;
       }
       
-      // Ordenar comentarios por fecha (más recientes primero)
       comentarios.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
       
       listaComentarios.innerHTML = '';
@@ -1047,13 +1420,11 @@
         return;
       }
       
-      // Validar email simple
       if (!email.includes('@') || !email.includes('.')) {
         alert('Por favor ingresa un email válido');
         return;
       }
       
-      // Crear nuevo comentario
       const nuevoComentario = {
         id: Date.now(),
         nombre,
@@ -1062,16 +1433,12 @@
         fecha: new Date().toISOString()
       };
       
-      // Agregar a la lista de comentarios
       comentarios.unshift(nuevoComentario);
-      
-      // Mostrar comentarios actualizados
+      guardarComentarios(comentarios);
       mostrarComentarios();
       
-      // Resetear formulario
       formComentario.reset();
       
-      // Mostrar mensaje de éxito
       const mensajeExito = document.createElement('div');
       mensajeExito.className = 'comentario';
       mensajeExito.style.backgroundColor = 'rgba(82, 183, 136, 0.2)';
@@ -1083,7 +1450,6 @@
       `;
       listaComentarios.insertBefore(mensajeExito, listaComentarios.firstChild);
       
-      // Desaparecer mensaje después de 3 segundos
       setTimeout(() => {
         mensajeExito.style.opacity = '0';
         mensajeExito.style.transform = 'translateY(-10px)';
@@ -1091,6 +1457,27 @@
           mensajeExito.remove();
         }, 300);
       }, 3000);
+    }
+
+    // Cambiar tema
+    function cambiarTema(tema) {
+      document.body.classList.remove('theme-light', 'theme-dark-green');
+      
+      if (tema) {
+        document.body.classList.add(`theme-${tema}`);
+      }
+      
+      themeDarkBtn.classList.remove('active');
+      themeLightBtn.classList.remove('active');
+      themeDarkGreenBtn.classList.remove('active');
+      
+      if (tema === 'light') {
+        themeLightBtn.classList.add('active');
+      } else if (tema === 'dark-green') {
+        themeDarkGreenBtn.classList.add('active');
+      } else {
+        themeDarkBtn.classList.add('active');
+      }
     }
 
     // Efecto de scroll revelado
@@ -1114,15 +1501,18 @@
     inputBusqueda.addEventListener('input', filtrarArañas);
     selectFamilia.addEventListener('change', filtrarArañas);
     formComentario.addEventListener('submit', manejarEnvioComentario);
+    themeDarkBtn.addEventListener('click', () => cambiarTema(''));
+    themeLightBtn.addEventListener('click', () => cambiarTema('light'));
+    themeDarkGreenBtn.addEventListener('click', () => cambiarTema('dark-green'));
 
     // Inicialización
     window.addEventListener('load', () => {
       createParticles();
       setupFamiliaFilter();
+      mostrarGaleria();
       mostrarArañas(arañas);
       mostrarComentarios();
       
-      // Efecto de carga inicial
       dbContainer.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
       setTimeout(() => {
         mostrarArañas(arañas);
