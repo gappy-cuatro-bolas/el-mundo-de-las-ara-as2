@@ -1103,43 +1103,43 @@
         nombre: 'Araña de jardín europea',
         nombreCientifico: 'Araneus diadematus',
         descripcion: 'Común en jardines, teje grandes telarañas orbiculares con un distintivo patrón en cruz en su abdomen.',
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Araneus_diadematus_%28aka%29.jpg/1200px-Araneus_diadematus_%28aka%29.jpg'
+        imagen: 'https://inaturalist-open-data.s3.amazonaws.com/photos/156036389/original.jpg'
       },
       {
         nombre: 'Araña camello',
         nombreCientifico: 'Solifugae',
         descripcion: 'Aunque no es una verdadera araña, es un arácnido veloz que habita en desiertos y puede alcanzar 15 cm.',
-        imagen: 'https://www.nationalgeographic.com.es/medio/2022/08/09/araña-camello_8d8d5e9e_1280x720.jpg'
+        imagen: 'https://www.aracnipedia.com/wp-content/uploads/2018/04/arana-camello.jpg'
       },
       {
         nombre: 'Araña de espalda roja',
         nombreCientifico: 'Latrodectus hasselti',
         descripcion: 'Pariente australiana de la viuda negra, con una distintiva marca roja en su espalda y veneno neurotóxico.',
-        imagen: 'https://www.australiangeographic.com.au/wp-content/uploads/2018/06/redback-spider.jpg'
+        imagen: 'https://inaturalist-open-data.s3.amazonaws.com/photos/221838/original.jpg'
       },
       {
         nombre: 'Araña de tela en embudo',
         nombreCientifico: 'Atrax robustus',
         descripcion: 'Una de las arañas más peligrosas del mundo, nativa de Australia. Su veneno puede ser fatal para humanos.',
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Atrax_robustus.jpg/1200px-Atrax_robustus.jpg'
+        imagen: 'https://img.huffingtonpost.es/files/og_thumbnail/uploads/2023/05/31/una-arana-de-tela-en-embudo-australiana.jpeg'
       },
       {
         nombre: 'Araña pescadora',
         nombreCientifico: 'Dolomedes',
         descripcion: 'Puede caminar sobre el agua y bucear para capturar pequeños peces y otros animales acuáticos.',
-        imagen: 'https://www.thoughtco.com/thmb/4Z2ZQ9Z9X9Z9X9Z9X9Z9X9Z9X9Z9=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/fishing-spider-5c5a9a4b46e0fb0001f5e5a5.jpg'
+        imagen: 'https://inaturalist-open-data.s3.amazonaws.com/photos/273207367/original.jpg'
       },
       {
         nombre: 'Araña de cara de ogro',
         nombreCientifico: 'Deinopidae',
         descripcion: 'Tiene visión nocturna excepcional y construye una red que lanza sobre sus presas como una red de caza.',
-        imagen: 'https://www.science.org/do/10.1126/science.aaz9455/abs/spider_1280p_0.jpg'
+        imagen: 'https://static.nationalgeographic.es/files/styles/image_3200/public/ogre-faced-spider-eyes.jpg?w=1900&h=1267'
       },
       {
         nombre: 'Araña de agua',
         nombreCientifico: 'Argyroneta aquatica',
         descripcion: 'La única araña que pasa toda su vida bajo el agua, creando una campana de aire para respirar.',
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Argyroneta_aquatica.jpg/1200px-Argyroneta_aquatica.jpg'
+        imagen: 'https://remihogar.es/cdn/shop/articles/arana-de-agua-argyroneta-aquatica_1000x.jpg?v=1716212576'
       }
     ];
 
