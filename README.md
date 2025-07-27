@@ -213,11 +213,12 @@
       opacity: 0.9;
     }
 
-    /* Galería de arañas */
+    /* Galería de arañas - Modificado para slider automático */
     .gallery-section {
       max-width: 1300px;
       margin: 3rem auto;
       padding: 0 2rem;
+      position: relative;
     }
 
     .gallery-title {
@@ -249,22 +250,12 @@
       gap: 1.5rem;
       padding: 1.5rem 0.5rem;
       scroll-snap-type: x mandatory;
-      scrollbar-width: thin;
-      scrollbar-color: var(--primary) rgba(255, 255, 255, 0.1);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     .spider-gallery::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .spider-gallery::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-    }
-
-    .spider-gallery::-webkit-scrollbar-thumb {
-      background-color: var(--primary);
-      border-radius: 10px;
+      display: none;
     }
 
     .gallery-item {
@@ -277,6 +268,7 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      flex-shrink: 0;
     }
 
     .gallery-item:hover {
@@ -1097,7 +1089,7 @@
       }
     ];
 
-    // Datos para la galería (con imágenes adicionales)
+    // Datos para la galería
     const gallerySpiders = [
       {
         nombre: 'Araña de jardín europea',
@@ -1157,6 +1149,11 @@
     const themeLightBtn = document.getElementById('theme-light');
     const themeDarkGreenBtn = document.getElementById('theme-dark-green');
 
+    // Variables para el slider
+    let currentSlide = 0;
+    let slideInterval;
+    const slideDuration = 10000; // 10 segundos entre slides
+
     // Cargar comentarios desde localStorage
     function cargarComentarios() {
       const comentariosGuardados = localStorage.getItem('comentariosAranas');
@@ -1176,14 +1173,14 @@
           nombre: "María López",
           email: "maria@example.com",
           comentario: "Tuve un encuentro con una viuda negra en mi jardín. Gracias a esta página pude identificarla y saber cómo actuar. ¡Muy útil!",
-          fecha: new Date(Date.now() - 86400000).toISOString() // Hace 1 día
+          fecha: new Date(Date.now() - 86400000).toISOString()
         },
         {
           id: 3,
           nombre: "Biólogo Andrés",
           email: "andres@example.com",
           comentario: "Como profesional, valoro mucho la precisión de la información presentada. Sería genial agregar más sobre su rol en los ecosistemas.",
-          fecha: new Date(Date.now() - 172800000).toISOString() // Hace 2 días
+          fecha: new Date(Date.now() - 172800000).toISOString()
         }
       ];
     }
@@ -1256,7 +1253,7 @@
       });
     }
 
-    // Mostrar galería de arañas
+    // Mostrar galería con slider automático
     function mostrarGaleria() {
       spiderGallery.innerHTML = '';
       
@@ -1276,33 +1273,75 @@
       });
       
       setupGalleryNavigation();
+      startSlider();
       revealElements();
+    }
+
+    // Iniciar slider automático
+    function startSlider() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, slideDuration);
+    }
+
+    // Detener slider automático
+    function stopSlider() {
+      clearInterval(slideInterval);
+    }
+
+    // Navegar al slide siguiente
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % gallerySpiders.length;
+      scrollToSlide(currentSlide);
+    }
+
+    // Navegar al slide anterior
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + gallerySpiders.length) % gallerySpiders.length;
+      scrollToSlide(currentSlide);
+    }
+
+    // Desplazarse a un slide específico
+    function scrollToSlide(index) {
+      const item = document.querySelector('.gallery-item');
+      if (item) {
+        const itemWidth = item.offsetWidth + 24; // Ancho + gap
+        spiderGallery.scrollTo({
+          left: index * itemWidth,
+          behavior: 'smooth'
+        });
+        currentSlide = index;
+      }
     }
 
     // Configurar navegación de la galería
     function setupGalleryNavigation() {
+      // Botones manuales
       galleryPrevBtn.addEventListener('click', () => {
-        spiderGallery.scrollBy({
-          left: -300,
-          behavior: 'smooth'
-        });
+        stopSlider();
+        prevSlide();
+        startSlider();
       });
       
       galleryNextBtn.addEventListener('click', () => {
-        spiderGallery.scrollBy({
-          left: 300,
-          behavior: 'smooth'
-        });
+        stopSlider();
+        nextSlide();
+        startSlider();
       });
       
-      spiderGallery.addEventListener('scroll', updateGalleryButtons);
-      updateGalleryButtons();
-    }
-
-    // Actualizar estado de los botones de navegación de la galería
-    function updateGalleryButtons() {
-      galleryPrevBtn.disabled = spiderGallery.scrollLeft <= 10;
-      galleryNextBtn.disabled = spiderGallery.scrollLeft >= spiderGallery.scrollWidth - spiderGallery.clientWidth - 10;
+      // Pausar al interactuar con la galería
+      spiderGallery.addEventListener('mouseenter', stopSlider);
+      spiderGallery.addEventListener('mouseleave', startSlider);
+      spiderGallery.addEventListener('touchstart', stopSlider);
+      spiderGallery.addEventListener('touchend', startSlider);
+      
+      // Actualizar slide actual al hacer scroll manual
+      spiderGallery.addEventListener('scroll', () => {
+        const item = document.querySelector('.gallery-item');
+        if (item) {
+          const itemWidth = item.offsetWidth + 24;
+          currentSlide = Math.round(spiderGallery.scrollLeft / itemWidth);
+        }
+      });
     }
 
     // Mostrar tarjetas de arañas
