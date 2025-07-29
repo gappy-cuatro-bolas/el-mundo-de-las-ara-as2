@@ -1002,7 +1002,7 @@
         nombreCientifico: 'Latrodectus mactans', 
         familia: 'Theridiidae', 
         descripcion: 'Famosa por su veneno neurotóxico. Las hembras son reconocibles por su marca de reloj de arena rojo en el abdomen. Aunque su veneno es potente, rara vez atacan a humanos.', 
-        imagen: 'https://cdnwine.diario1.com/wp-content/uploads/2023/08/Viuda-Negra.jpg', 
+        imagen: 'https://inaturalist-open-data.s3.amazonaws.com/photos/261477347/original.jpg', 
         enlace: 'https://gappy-cuatro-bolas.github.io/viuda-negra/',
         peligrosidad: 'Alta'
       },
