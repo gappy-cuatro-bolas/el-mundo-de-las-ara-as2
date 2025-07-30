@@ -1131,7 +1131,7 @@
         nombre: 'Araña de agua',
         nombreCientifico: 'Argyroneta aquatica',
         descripcion: 'La única araña que pasa toda su vida bajo el agua, creando una campana de aire para respirar.',
-        imagen: 'https://remihogar.es/cdn/shop/articles/arana-de-agua-argyroneta-aquatica_1000x.jpg?v=1716212576'
+        imagen: 'https://static.wikia.nocookie.net/reinoanimalia/images/2/27/Argyroneta_aquatica_hun_1078.jpg/revision/latest?cb=20181129095635&path-prefix=es'
       }
     ];
 
